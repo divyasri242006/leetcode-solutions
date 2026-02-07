@@ -1,34 +1,24 @@
-// Last updated: 2/7/2026, 6:55:33 PM
+// Last updated: 2/7/2026, 7:01:49 PM
 1class Solution {
-2    public int maxFreqSum(String s) {
-3
-4        int[] freq = new int[26];   // frequency of each letter
-5
-6        // Count frequencies
-7        for (char ch : s.toCharArray()) {
-8            freq[ch - 'a']++;
-9        }
-10
-11        int maxVowel = 0;
-12        int maxConsonant = 0;
-13
-14        // Check each character
-15        for (int i = 0; i < 26; i++) {
-16            char letter = (char) (i + 'a');
-17
-18            if (isVowel(letter)) {
-19                maxVowel = Math.max(maxVowel, freq[i]);
-20            } else {
-21                maxConsonant = Math.max(maxConsonant, freq[i]);
-22            }
-23        }
-24
-25        return maxVowel + maxConsonant;
-26    }
-27
-28    // Helper method to check vowel
-29    private boolean isVowel(char ch) {
-30        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
-31    }
-32}
-33
+2    public int canBeTypedWords(String text, String brokenLetters) {
+3        boolean[]broken=new boolean[26];
+4        for (char ch:brokenLetters.toCharArray()){
+5            broken[ch-'a']=true;
+6        }
+7        int count=0;
+8        String[]words=text.split(" ");
+9        for(String word:words){
+10            boolean canType=true;
+11            for(char ch:word.toCharArray()){
+12                if(broken[ch-'a']){
+13                    canType=false;
+14                    break;
+15                }
+16            }
+17            if(canType){
+18                count++;
+19            }
+20    }
+21    return count;
+22}
+23}
