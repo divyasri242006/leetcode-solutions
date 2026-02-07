@@ -1,15 +1,16 @@
-// Last updated: 2/7/2026, 7:16:59 PM
+// Last updated: 2/7/2026, 7:20:30 PM
 1class Solution {
-2    public int[] plusOne(int[] digits) {
-3        for (int i=digits.length-1;i>=0;i--){
-4            if(digits[i]<9){
-5                digits[i]++;
-6                return digits;
-7            }
-8            digits[i]=0;
-9        }
-10        int[]result=new int[digits.length+1];
-11        result[0]=1;
-12        return result;
-13    }
-14}
+2    public int climbStairs(int n) {
+3     if(n<=2){
+4        return n;
+5     }   
+6     int prev2=1;
+7     int prev1=2;
+8     for(int i=3;i<=n;i++){
+9        int current=prev1+prev2;
+10        prev2=prev1;
+11        prev1=current;
+12     }
+13     return prev1;
+14    }
+15}
