@@ -1,4 +1,4 @@
-// Last updated: 2/7/2026, 7:01:49 PM
+// Last updated: 2/7/2026, 7:02:03 PM
 1class Solution {
 2    public int canBeTypedWords(String text, String brokenLetters) {
 3        boolean[]broken=new boolean[26];
